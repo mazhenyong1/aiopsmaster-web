@@ -78,14 +78,14 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--b
   linear-gradient(transparent 0,transparent calc(100% - 1px),var(--grid) 100%) 0 0/100% 34px,
   linear-gradient(90deg,transparent 0,transparent calc(100% - 1px),var(--grid) 100%) 0 0/34px 100%;
   opacity:.9;pointer-events:none;mask-image:radial-gradient(120% 90% at 50% 0,#000 55%,transparent)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-.hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;margin:18px 0 0}
+.hero .wrap{position:relative}
+.hero .copy{max-width:60ch}
+.hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;margin:18px 0 0;max-width:17ch}
 .hero h1 .g{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lead{font-size:18.5px;color:var(--muted);margin:20px 0 0;max-width:52ch}
+.hero .lead{font-size:18.5px;color:var(--muted);margin:20px 0 0;max-width:56ch}
 .hero .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 .hero .meta{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap;font-size:13px;color:var(--faint)}
 .hero .meta b{color:var(--body);font-weight:600}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:34px}}
 
 /* incident console (hero visual) */
 .console{background:var(--surface);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -105,6 +105,101 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--b
 .step .m .h{font-weight:600;color:var(--ink);font-size:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .step .m .s{font-size:12.5px;color:var(--muted);margin-top:3px;font-family:"IBM Plex Mono";line-height:1.5}
 .step .m .s b{color:var(--body);font-weight:600}
+
+/* ============ pillar divider ============ */
+.pillar{display:flex;align-items:center;gap:14px;margin:0 0 6px}
+.pillar .tag{font-family:"IBM Plex Mono";font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.pillar .tag.dev{background:var(--info-bg);color:var(--info)} .pillar .tag.sre{background:var(--accent-bg);color:var(--accent-2)}
+:root[data-theme="dark"] .pillar .tag.sre{color:var(--accent)}
+.pillar .line{flex:1;height:1px;background:var(--hair)}
+.pillar .side{font-family:"IBM Plex Mono";font-size:11.5px;color:var(--faint)}
+
+/* ============ rich console dashboard ============ */
+.dboard{background:var(--surface);border:1px solid var(--hair);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-top:42px}
+.dboard .chrome{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--hair);background:var(--raised)}
+.dboard .chrome .d{width:10px;height:10px;border-radius:50%;background:var(--hair)}
+.dboard .chrome .ttl{font-family:"IBM Plex Mono";font-size:12px;color:var(--muted);margin-left:6px}
+.dboard .chrome .env{margin-left:auto;font-family:"IBM Plex Mono";font-size:11px;color:var(--body);background:var(--surface);border:1px solid var(--hair);border-radius:7px;padding:3px 9px}
+.dboard .chrome .lv{display:flex;align-items:center;gap:6px;font-family:"IBM Plex Mono";font-size:11px;color:var(--ok);font-weight:600;margin-left:12px}
+.dboard .chrome .lv .p{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+.dboard .shell{display:grid;grid-template-columns:54px 1fr;min-height:430px}
+.dboard .rail{border-right:1px solid var(--hair);background:var(--sunken);display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 0}
+.dboard .rail a{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:16px;color:var(--muted);cursor:default;position:relative}
+.dboard .rail a.on{background:var(--accent-bg);color:var(--accent-2)} :root[data-theme="dark"] .dboard .rail a.on{color:var(--accent)}
+.dboard .rail a .bdg{position:absolute;top:3px;right:3px;min-width:14px;height:14px;padding:0 3px;border-radius:7px;background:var(--crit);color:#fff;font-size:9px;font-weight:700;display:grid;place-items:center;font-family:"IBM Plex Mono"}
+.dboard .rail .gap{flex:1}
+.dboard .main{padding:13px;display:grid;grid-template-columns:1.35fr 1fr;gap:12px;align-content:start}
+.dboard .kpis{grid-column:1/3;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.dboard .kpi{border:1px solid var(--hair);border-radius:11px;padding:9px 12px;background:var(--surface)}
+.dboard .kpi .v{font-family:"Sora";font-weight:700;font-size:19px;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.dboard .kpi .v small{font-size:12px;color:var(--accent-2)} :root[data-theme="dark"] .dboard .kpi .v small{color:var(--accent)}
+.dboard .kpi .l{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:.01em}
+.dboard .pnl{border:1px solid var(--hair);border-radius:12px;background:var(--surface);overflow:hidden;display:flex;flex-direction:column}
+.dboard .pnl .ph{display:flex;align-items:center;gap:7px;padding:9px 12px;border-bottom:1px solid var(--hair);font-size:12px;font-weight:600;color:var(--ink)}
+.dboard .pnl .ph .c{margin-left:auto;font-family:"IBM Plex Mono";font-size:10px;color:var(--faint);font-weight:500}
+.dboard table.mini{width:100%;border-collapse:collapse;font-size:11.5px}
+.dboard table.mini td{padding:7px 12px;border-bottom:1px solid var(--grid);color:var(--body)}
+.dboard table.mini tr:last-child td{border-bottom:0}
+.dboard table.mini .sv{width:3px;height:14px;border-radius:2px;display:inline-block;vertical-align:-2px;margin-right:7px}
+.dboard table.mini code{font-family:"IBM Plex Mono";font-size:10.5px;color:var(--muted)}
+.dboard table.mini tr.flash{animation:flashrow 2.4s ease}
+@keyframes flashrow{0%,100%{background:transparent}25%{background:var(--accent-bg)}}
+.dboard .rcap{padding:12px}
+.dboard .rcap .vh{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--crit)}
+.dboard .rcap .vt{font-size:12.5px;color:var(--ink);font-weight:600;margin-top:5px;line-height:1.45}
+.dboard .rcap .vt code{background:var(--sunken);padding:0 4px;border-radius:4px;font-family:"IBM Plex Mono";font-size:11px}
+.dboard .rcap .evr{display:flex;gap:8px;font-size:11px;margin-top:9px;color:var(--muted)}
+.dboard .rcap .evr .k{font-family:"IBM Plex Mono";color:var(--accent-2);font-weight:600;flex:none;width:52px}
+:root[data-theme="dark"] .dboard .rcap .evr .k{color:var(--accent)}
+.dboard .rcap .go{margin-top:11px;padding:8px 10px;border-radius:9px;background:var(--accent-bg);font-size:11.5px;color:var(--ink);display:flex;gap:7px;align-items:center;border:1px solid var(--hair)}
+.dboard .feed{grid-column:1/3}
+.dboard .feed .fl{display:flex;gap:9px;padding:7px 12px;border-bottom:1px solid var(--grid);font-size:11.5px;align-items:center}
+.dboard .feed .fl:last-child{border-bottom:0}
+.dboard .feed .fl .tm{font-family:"IBM Plex Mono";font-size:10px;color:var(--faint);flex:none;width:44px}
+.dboard .feed .fl .x{color:var(--body)} .dboard .feed .fl .x b{color:var(--ink)} .dboard .feed .fl .x code{font-family:"IBM Plex Mono";font-size:10.5px;color:var(--accent-2)}
+:root[data-theme="dark"] .dboard .feed .fl .x code{color:var(--accent)}
+.dboard .spark{grid-column:1/3;border:1px solid var(--hair);border-radius:12px;padding:10px 14px;background:var(--surface);display:flex;align-items:center;gap:16px}
+.dboard .spark .sl{font-size:11px;color:var(--muted);flex:none}
+.dboard .spark svg{flex:1;height:34px}
+@media(max-width:1000px){.dboard .main{grid-template-columns:1fr}.dboard .kpis,.dboard .feed,.dboard .spark{grid-column:auto}.dboard .kpis{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dboard .shell{grid-template-columns:1fr}.dboard .rail{flex-direction:row;border-right:0;border-bottom:1px solid var(--hair);justify-content:center;gap:4px}.dboard .rail .gap{display:none}}
+
+/* ============ floating AI chat widget ============ */
+.chatw{position:fixed;right:22px;bottom:22px;z-index:120;font-family:"IBM Plex Sans",sans-serif}
+.chatw .fab{width:56px;height:56px;border-radius:17px;border:0;cursor:pointer;background:linear-gradient(145deg,var(--accent),var(--accent-2));color:#04201F;display:grid;place-items:center;box-shadow:0 10px 30px -6px var(--accent-ring),0 4px 12px rgba(0,0,0,.2);transition:.18s;position:relative}
+.chatw .fab:hover{transform:translateY(-2px) scale(1.04)}
+.chatw .fab svg{width:26px;height:26px}
+.chatw .fab .ping{position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:var(--crit);border:2px solid var(--bg)}
+.chatw .panel{position:absolute;right:0;bottom:70px;width:370px;max-width:calc(100vw - 36px);height:510px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid var(--hair);border-radius:18px;box-shadow:0 24px 60px -16px rgba(0,0,0,.42),var(--glow);display:none;flex-direction:column;overflow:hidden;transform-origin:bottom right}
+.chatw.open .panel{display:flex;animation:popin .22s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes popin{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+.chatw .phd{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--hair);background:var(--raised)}
+.chatw .phd .av{width:30px;height:30px;border-radius:9px;background:linear-gradient(145deg,var(--accent),var(--accent-2));display:grid;place-items:center;flex:none;color:#04201F;font-size:15px}
+.chatw .phd .nm{font-weight:700;color:var(--ink);font-size:13.5px;font-family:"Sora"}
+.chatw .phd .st{font-size:11px;color:var(--ok);display:flex;align-items:center;gap:5px;margin-top:1px}
+.chatw .phd .st .p{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.chatw .phd .cl{margin-left:auto;background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:20px;line-height:1;padding:2px 6px;border-radius:7px}
+.chatw .phd .cl:hover{background:var(--sunken);color:var(--ink)}
+.chatw .msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.chatw .m{max-width:86%;font-size:13px;line-height:1.55;padding:9px 12px;border-radius:13px}
+.chatw .m.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--hair);color:var(--body);border-bottom-left-radius:4px}
+.chatw .m.me{align-self:flex-end;background:var(--accent);color:#04201F;border-bottom-right-radius:4px}
+.chatw .m.ai code{background:var(--sunken);padding:1px 5px;border-radius:4px;font-family:"IBM Plex Mono";font-size:11.5px;color:var(--ink)}
+.chatw .m.ai b{color:var(--ink)}
+.chatw .typing{align-self:flex-start;display:flex;gap:4px;padding:11px 13px;background:var(--surface);border:1px solid var(--hair);border-radius:13px;border-bottom-left-radius:4px}
+.chatw .typing span{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:bounce 1.2s infinite}
+.chatw .typing span:nth-child(2){animation-delay:.15s}.chatw .typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.chatw .sugg{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 10px;background:var(--bg)}
+.chatw .sugg button{font-size:11.5px;color:var(--accent-2);background:var(--accent-bg);border:1px solid transparent;border-radius:999px;padding:5px 11px;cursor:pointer;font-family:inherit}
+:root[data-theme="dark"] .chatw .sugg button{color:var(--accent)}
+.chatw .sugg button:hover{filter:brightness(1.05)}
+.chatw .inp{display:flex;gap:8px;padding:12px 13px;border-top:1px solid var(--hair);background:var(--surface)}
+.chatw .inp input{flex:1;border:1px solid var(--hair);border-radius:11px;padding:10px 12px;font:inherit;font-size:13px;background:var(--bg);color:var(--ink)}
+.chatw .inp input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)}
+.chatw .inp button{width:40px;border:0;border-radius:11px;background:var(--accent);color:#04201F;cursor:pointer;display:grid;place-items:center;flex:none}
+.chatw .inp button svg{width:18px;height:18px}
+@media(max-width:480px){.chatw{right:14px;bottom:14px}.chatw .panel{width:calc(100vw - 28px)}}
 
 /* ============ stat band ============ */
 .band{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--surface)}
@@ -268,33 +363,90 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
 <!-- ===================== HERO ===================== -->
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Autonomous incident operations</span>
-      <h1>Your incidents, <span class="g">diagnosed & resolved</span> — before the pager finishes buzzing.</h1>
-      <p class="lead">AIOpsMaster triages every alert, reads the runbooks, gathers the evidence, writes the root-cause analysis, and runs the fix — the way your most senior SRE would, on every incident, around the clock.</p>
+    <div class="copy">
+      <span class="eyebrow">Ship it · Run it · Defend it</span>
+      <h1>The control plane that <span class="g">builds, runs & defends</span> production.</h1>
+      <p class="lead">One platform across the whole lifecycle — a <b style="color:var(--info)">DevOps</b> side that ships code through CI/CD, GitOps and Infrastructure-as-Code, and an <b style="color:var(--accent-2)">SRE / AIOps</b> side that triages, root-causes and resolves every incident on its own.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#demo">▶ Watch it resolve an incident</a>
-        <a class="btn btn-ghost" href="#capabilities">Explore the platform</a>
+        <a class="btn btn-ghost" href="#platform">Explore the platform</a>
       </div>
       <div class="meta">
-        <span><b>−74%</b> mean time to resolve</span>
-        <span><b>−91%</b> repeat-alert noise</span>
-        <span><b>63%</b> incidents auto-closed</span>
+        <span><b>−74%</b> MTTR</span>
+        <span><b>63%</b> auto-closed</span>
+        <span><b>1M+</b> servers · 50+ regions</span>
       </div>
     </div>
 
-    <div class="console" aria-hidden="true">
-      <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span>
-        <span class="t">incident / console</span>
-        <span class="live"><span class="p"></span>LIVE</span>
+    <!-- rich control-plane console -->
+    <div class="dboard" aria-hidden="true">
+      <div class="chrome">
+        <span class="d"></span><span class="d"></span><span class="d"></span>
+        <span class="ttl">aiopsmaster · control plane</span>
+        <span class="env">env: prod · 52 regions</span>
+        <span class="lv"><span class="p"></span>LIVE</span>
       </div>
-      <div class="body" id="heroSteps">
-        <div class="step"><div class="ic">🔔</div><div class="m"><div class="h">Alert received <span class="chip crit"><span class="dot" style="background:var(--crit)"></span>P1</span></div><div class="s"><b>HighLatency</b> on <code>api-gateway</code> · p99 2.8s · region <b>us-west</b></div></div></div>
-        <div class="step"><div class="ic">🧭</div><div class="m"><div class="h">Routed &amp; deduplicated</div><div class="s">matched signature · <b>4 duplicates</b> folded · playbook <b>latency-triage</b></div></div></div>
-        <div class="step"><div class="ic">🧠</div><div class="m"><div class="h">AI root-cause analysis</div><div class="s">read 3 runbooks · pulled traces + dashboards · <b>writing RCA…</b></div></div></div>
-        <div class="step"><div class="ic">📑</div><div class="m"><div class="h">Verdict</div><div class="s">connection-pool exhaustion on <code>payments-svc</code> after deploy <code>v8.4.1</code></div></div></div>
-        <div class="step"><div class="ic">⚡</div><div class="m"><div class="h">Playbook executed</div><div class="s">scaled pool 64→128 · verified p99 · <b>change audited</b></div></div></div>
-        <div class="step"><div class="ic">✅</div><div class="m"><div class="h">Resolved &amp; learned <span class="chip ok"><span class="dot" style="background:var(--ok)"></span>3m 41s</span></div><div class="s">RCA posted to chat · runbook updated · pattern remembered</div></div></div>
+      <div class="shell">
+        <div class="rail">
+          <a title="Incidents" class="on">🔔<span class="bdg">7</span></a>
+          <a title="Governance">🧭</a>
+          <a title="Playbooks">⚡</a>
+          <a title="Knowledge">📚</a>
+          <a title="Delivery">🚀</a>
+          <a title="Infrastructure">🧱</a>
+          <a title="On-call">🌏</a>
+          <span class="gap"></span>
+          <a title="Audit">🔒</a>
+          <a title="Settings">⚙️</a>
+        </div>
+        <div class="main">
+          <div class="kpis">
+            <div class="kpi"><div class="v tnum">7</div><div class="l">OPEN INCIDENTS</div></div>
+            <div class="kpi"><div class="v tnum">42<small> ✓</small></div><div class="l">AUTO-RESOLVED · 24H</div></div>
+            <div class="kpi"><div class="v tnum">3.7<small>m</small></div><div class="l">MEDIAN MTTR</div></div>
+            <div class="kpi"><div class="v tnum">97<small>%</small></div><div class="l">RUNBOOK COVERAGE</div></div>
+          </div>
+
+          <div class="pnl">
+            <div class="ph">⚠️ Active incidents <span class="c">live</span></div>
+            <table class="mini">
+              <tr class="flash" id="flashRow"><td><span class="sv" style="background:var(--crit)"></span><b style="color:var(--ink)">HighLatency</b><br><code>api-gateway · us-west</code></td><td style="text-align:right"><span class="chip info" style="font-size:10px">diagnosing</span></td></tr>
+              <tr><td><span class="sv" style="background:var(--warn)"></span><b style="color:var(--ink)">PacketLoss</b><br><code>lb-edge-07</code></td><td style="text-align:right"><span class="chip ac" style="font-size:10px">playbook</span></td></tr>
+              <tr><td><span class="sv" style="background:var(--crit)"></span><b style="color:var(--ink)">5xx spike</b><br><code>cdn-pop-sfo ·×317</code></td><td style="text-align:right"><span class="chip ok" style="font-size:10px">deduped</span></td></tr>
+              <tr><td><span class="sv" style="background:var(--warn)"></span><b style="color:var(--ink)">DiskPressure</b><br><code>db-primary</code></td><td style="text-align:right"><span class="chip ok" style="font-size:10px">resolved</span></td></tr>
+            </table>
+          </div>
+
+          <div class="pnl">
+            <div class="ph">🧠 Root cause <span class="c">#INC-4821 · 00:41</span></div>
+            <div class="rcap">
+              <div class="vh">Verdict · high confidence</div>
+              <div class="vt">Connection-pool exhaustion on <code>payments-svc</code> after <code>v8.4.1</code>.</div>
+              <div class="evr"><span class="k">evidence</span><span>p99 310ms → <b style="color:var(--body)">2.8s</b> at deploy time</span></div>
+              <div class="evr"><span class="k">runbook</span><span>latency-triage §3.2 · pool saturation</span></div>
+              <div class="go">⚡ <b style="color:var(--ink)">raise pool 64→128</b> · reversible · needs approval</div>
+            </div>
+          </div>
+
+          <div class="spark">
+            <span class="sl">Alert volume · 24h ↓</span>
+            <svg viewBox="0 0 400 34" preserveAspectRatio="none">
+              <polyline fill="none" stroke="var(--grid)" stroke-width="1" points="0,30 400,30"/>
+              <polyline fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" points="2,8 30,6 58,14 86,9 114,20 142,12 170,24 198,18 226,27 254,22 282,28 310,24 338,29 366,26 398,30"/>
+            </svg>
+            <span class="sl" style="color:var(--ok)">−91% noise</span>
+          </div>
+
+          <div class="pnl feed">
+            <div class="ph">📡 Activity <span class="c">streaming</span></div>
+            <div id="dboardFeed">
+              <div class="fl"><span class="tm">14:03</span><span class="x"><b>Playbook</b> <code>latency-triage</code> executed · pool 64→128</span></div>
+              <div class="fl"><span class="tm">14:02</span><span class="x"><b>Deploy</b> <code>v8.4.1</code> promoted staging→prod-us · GitOps PR #419</span></div>
+              <div class="fl"><span class="tm">14:01</span><span class="x"><b>Drift</b> reconciled · <code>edge-proxy</code> replicas 4→12</span></div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -329,12 +481,45 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
   </div>
 </section>
 
-<!-- ===================== CAPABILITIES ===================== -->
+<!-- ===================== PLATFORM · TWO PILLARS ===================== -->
+<section class="sec" id="platform" style="padding-top:16px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">One platform · two disciplines</span>
+      <h2>DevOps builds and ships it. SRE runs and defends it.</h2>
+      <p>A clear line between the two — and one control plane that spans both, so what you deploy and how it behaves in production live in the same place.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px" class="reveal">
+      <div class="card" style="padding:24px;border-top:3px solid var(--info)">
+        <span class="chip info">DevOps · Platform engineering</span>
+        <h3 style="font-size:22px;margin:13px 0 0">Build &amp; ship it</h3>
+        <p style="color:var(--muted);font-size:14.5px;margin:10px 0 0">Get code to production safely, repeatably, across every environment.</p>
+        <ul style="list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:13px;color:var(--body)">
+          <li>▸ CI/CD pipelines</li><li>▸ GitOps promotion</li><li>▸ Infrastructure-as-Code</li><li>▸ Config-drift control</li><li>▸ Self-managed Kubernetes</li><li>▸ Multi-env management</li>
+        </ul>
+        <a href="#delivery" style="display:inline-block;margin-top:18px;color:var(--info);font-weight:600;font-size:14px">See the DevOps side →</a>
+      </div>
+      <div class="card" style="padding:24px;border-top:3px solid var(--accent)">
+        <span class="chip ac">SRE · AIOps</span>
+        <h3 style="font-size:22px;margin:13px 0 0">Run &amp; defend it</h3>
+        <p style="color:var(--muted);font-size:14.5px;margin:10px 0 0">Keep it reliable — and resolve incidents on its own, around the clock.</p>
+        <ul style="list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;font-size:13px;color:var(--body)">
+          <li>▸ Unified alert console</li><li>▸ AI root-cause</li><li>▸ Per-alert governance</li><li>▸ Playbooks &amp; SOPs</li><li>▸ Living knowledge base</li><li>▸ Agentic evidence capture</li>
+        </ul>
+        <a href="#capabilities" style="display:inline-block;margin-top:18px;color:var(--accent-2);font-weight:600;font-size:14px">See the SRE side →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAPABILITIES (SRE) ===================== -->
 <section class="sec" id="capabilities" style="padding-top:20px">
   <div class="wrap">
+    <div class="pillar reveal"><span class="tag sre">SRE · AIOps</span><span class="side">Run &amp; defend</span><span class="line"></span></div>
     <div class="sec-head reveal" style="margin-bottom:8px">
-      <span class="eyebrow">Capabilities</span>
-      <h2>A control room for the whole incident lifecycle.</h2>
+      <span class="eyebrow">Operate &amp; defend production</span>
+      <h2>The reliability side — triage, diagnose, resolve.</h2>
+      <p>Everything that keeps production healthy once it's live: one console for alerts, AI that finds the root cause, and playbooks that run the fix.</p>
     </div>
 
     <!-- cap 1: alert console -->
@@ -515,10 +700,11 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
 <!-- ===================== DELIVERY & IAC ===================== -->
 <section class="sec" id="delivery">
   <div class="wrap">
+    <div class="pillar reveal"><span class="tag dev">DevOps · Platform</span><span class="side">Build &amp; ship</span><span class="line"></span></div>
     <div class="sec-head reveal">
-      <span class="eyebrow">Delivery &amp; platform engineering</span>
-      <h2>Ship it the same disciplined way you resolve it.</h2>
-      <p>The control plane that diagnoses incidents also builds, promotes, and guards what you deploy — CI/CD, GitOps, Infrastructure-as-Code, and drift control, in one place.</p>
+      <span class="eyebrow">Build &amp; ship to production</span>
+      <h2>The delivery side — pipelines, GitOps, and Infrastructure-as-Code.</h2>
+      <p>Everything that gets code safely into production: staged CI/CD, Git as the source of truth, reusable IaC modules, drift control, and a self-managed Kubernetes platform underneath.</p>
     </div>
 
     <!-- CI/CD pipeline visual -->
@@ -706,6 +892,7 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
       <div class="sh">
         <span class="t">🔬 Incident simulator</span>
         <span class="chip crit" id="simStatus"><span class="dot" style="background:var(--crit)"></span>idle</span>
+        <span class="mono" id="simPhase" style="font-size:11.5px;color:var(--faint)"></span>
         <span class="sp"></span>
         <button class="btn btn-primary" id="runSim">▶ Run incident</button>
         <button class="btn btn-ghost" id="resetSim">Reset</button>
@@ -714,13 +901,16 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
         <div class="pane l">
           <div class="pl">Timeline</div>
           <div class="feed" id="simFeed">
-            <div class="ln" data-t="00:00"><span class="tm">00:00</span><span class="x"><b>🔔 Alert</b> — <code>HighLatency</code> on <code>api-gateway</code>, p99 2.8s</span></div>
-            <div class="ln" data-t="00:02"><span class="tm">00:02</span><span class="x"><b>🧭 Routed</b> — 4 duplicates folded · playbook <code>latency-triage</code> matched</span></div>
-            <div class="ln" data-t="00:06"><span class="tm">00:06</span><span class="x"><b>🖥️ Evidence</b> — opened dashboards, captured p99 + pool panels</span></div>
-            <div class="ln" data-t="00:19"><span class="tm">00:19</span><span class="x"><b>🧠 Reasoning</b> — correlating deploy timeline with latency step…</span></div>
-            <div class="ln" data-t="00:34"><span class="tm">00:34</span><span class="x"><b>📑 Verdict</b> — connection-pool exhaustion after <code>v8.4.1</code></span></div>
-            <div class="ln" data-t="00:48"><span class="tm">00:48</span><span class="x"><b>⚡ Playbook</b> — pool raised 64→128 (approved) · verifying…</span></div>
-            <div class="ln" data-t="03:41"><span class="tm">03:41</span><span class="x"><b>✅ Resolved</b> — p99 back to 290ms · RCA posted · pattern learned</span></div>
+            <div class="ln"><span class="tm">00:00</span><span class="x"><b>🔔 Alert</b> — <code>HighLatency</code> on <code>api-gateway</code>, p99 2.8s, region us-west</span></div>
+            <div class="ln"><span class="tm">00:02</span><span class="x"><b>🧭 Triage</b> — 4 duplicates folded into #INC-4821 · severity P1 (checkout path)</span></div>
+            <div class="ln"><span class="tm">00:03</span><span class="x"><b>🧭 Route</b> — signature matched playbook <code>latency-triage</code> · engine: AI + playbook</span></div>
+            <div class="ln"><span class="tm">00:07</span><span class="x"><b>🖥️ Evidence</b> — opened latency dashboard, captured p99 panel (screenshot 1)</span></div>
+            <div class="ln"><span class="tm">00:12</span><span class="x"><b>🖥️ Evidence</b> — pulled connection-pool metrics + recent deploy timeline</span></div>
+            <div class="ln"><span class="tm">00:21</span><span class="x"><b>🧠 Reasoning</b> — correlating latency step with deploy <code>v8.4.1</code>…</span></div>
+            <div class="ln"><span class="tm">00:34</span><span class="x"><b>📑 Verdict</b> — connection-pool exhaustion on <code>payments-svc</code> (high confidence)</span></div>
+            <div class="ln"><span class="tm">00:46</span><span class="x"><b>⚡ Playbook</b> — raise pool 64→128 · <span class="x" style="color:var(--warn)">approval requested</span> → approved</span></div>
+            <div class="ln"><span class="tm">01:02</span><span class="x"><b>🔁 Verify</b> — watching p99 for 3 min · rollback armed if not recovered</span></div>
+            <div class="ln"><span class="tm">03:41</span><span class="x"><b>✅ Resolved</b> — p99 back to 290ms · RCA posted to chat · runbook + pattern learned</span></div>
           </div>
         </div>
         <div class="pane">
@@ -822,6 +1012,34 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
 
 </main>
 
+<!-- ===================== FLOATING AI CHAT ===================== -->
+<div class="chatw" id="chatw">
+  <div class="panel" role="dialog" aria-label="AIOps assistant">
+    <div class="phd">
+      <div class="av">🛰️</div>
+      <div><div class="nm">Ops Copilot</div><div class="st"><span class="p"></span>online · ask me anything</div></div>
+      <button class="cl" id="chatClose" aria-label="Close">×</button>
+    </div>
+    <div class="msgs" id="chatMsgs">
+      <div class="m ai">👋 Hi — I'm the <b>AIOpsMaster</b> copilot. Ask me how the platform handles delivery or incidents, or try a prompt below.</div>
+    </div>
+    <div class="sugg" id="chatSugg">
+      <button>How does AI root-cause work?</button>
+      <button>What's the CI/CD pipeline?</button>
+      <button>How do you detect config drift?</button>
+      <button>DevOps vs SRE here?</button>
+    </div>
+    <form class="inp" id="chatForm">
+      <input id="chatInput" type="text" placeholder="Ask the copilot…" autocomplete="off" aria-label="Message">
+      <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></button>
+    </form>
+  </div>
+  <button class="fab" id="chatFab" aria-label="Open assistant">
+    <span class="ping"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#04201F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+  </button>
+</div>
+
 <footer>
   <div class="wrap">
     <a class="brand" href="#top" style="font-size:15px"><span class="mk"></span>AIOpsMaster</a>
@@ -845,75 +1063,137 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
-  // hero steps auto-play loop
-  var steps=Array.prototype.slice.call(document.querySelectorAll('#heroSteps .step'));
-  var hi=0;
-  function heroTick(){
-    steps.forEach(function(s,i){s.classList.toggle('on', i<=hi); s.classList.toggle('cur', i===hi);});
-    hi++; if(hi>steps.length){ setTimeout(function(){steps.forEach(function(s){s.classList.remove('on','cur');}); hi=0; setTimeout(heroTick,500);},2600); return;}
-    setTimeout(heroTick, hi===1?500:900);
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // ===== hero console liveness =====
+  var flashRow=document.getElementById('flashRow');
+  var dfeed=document.getElementById('dboardFeed');
+  var feedPool=[
+    ['14:04','<b>Alert</b> <code>HighLatency</code> · api-gateway · AI diagnosing'],
+    ['14:04','<b>Evidence</b> captured 3 screenshots → #INC-4821'],
+    ['14:03','<b>Resolved</b> #INC-4812 · pool exhaustion · 3m 41s'],
+    ['14:03','<b>Playbook</b> <code>latency-triage</code> ran · pool 64→128'],
+    ['14:02','<b>Deploy</b> <code>v8.4.1</code> promoted staging→prod-us · PR #419'],
+    ['14:01','<b>Drift</b> reconciled · <code>edge-proxy</code> replicas 4→12'],
+    ['14:00','<b>Canary</b> 1% healthy · rollout wave 2 of 5'],
+    ['13:59','<b>On-call</b> paged duty · us-west · ack 00:12']
+  ];
+  var fidx=0;
+  function dboardTick(){
+    if(flashRow){flashRow.classList.remove('flash'); void flashRow.offsetWidth; flashRow.classList.add('flash');}
+    if(dfeed){
+      var it=feedPool[fidx%feedPool.length]; fidx++;
+      var el=document.createElement('div'); el.className='fl';
+      el.innerHTML='<span class="tm">'+it[0]+'</span><span class="x">'+it[1]+'</span>';
+      el.style.opacity=0; dfeed.insertBefore(el,dfeed.firstChild);
+      requestAnimationFrame(function(){el.style.transition='opacity .4s';el.style.opacity=1;});
+      while(dfeed.children.length>3) dfeed.removeChild(dfeed.lastChild);
+    }
   }
-  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){heroTick();}
-  else{steps.forEach(function(s){s.classList.add('on');});}
+  if(!reduce) setInterval(dboardTick, 3200);
 
-  // ===== incident simulator =====
+  // ===== incident simulator (richer + slower, phase-paced) =====
   var feed=document.querySelectorAll('#simFeed .ln');
   var stream=document.getElementById('simStream');
   var status=document.getElementById('simStatus');
+  var phaseEl=document.getElementById('simPhase');
   var elapsed=document.getElementById('simElapsed');
   var runBtn=document.getElementById('runSim'), resetBtn=document.getElementById('resetSim');
   var timers=[], running=false;
-  var script=[
-    "▸ Alert HighLatency received on api-gateway (p99 2.8s).\n",
-    "▸ Folding 4 duplicate pages into one incident.\n",
-    "▸ Reading runbooks: latency-triage, pool-exhaustion…\n",
-    "▸ Opening dashboards (read-only), capturing p99 + pool panels.\n\n",
-    "Reasoning\n",
-    "• p99 steps 310ms → 2.8s at 14:02 — aligns with deploy v8.4.1.\n",
-    "• active connections pinned at ceiling 64/64 for 9 min.\n",
-    "• error budget burn 6× normal; blast radius = checkout path.\n\n",
-    "Verdict (high confidence)\n",
-    "Connection-pool exhaustion on payments-svc after v8.4.1 —\n",
-    "pool ceiling unchanged while traffic doubled.\n\n",
-    "Action\n",
-    "⚡ latency-triage §3.2 → raise pool 64 → 128 (approved, reversible).\n",
-    "Verifying p99 for 3 min… recovered to 290ms.\n\n",
-    "✅ Resolved in 3m 41s. RCA posted to chat. Pattern remembered."
+  // [text, pauseAfterMs]
+  var segs=[
+    ["$ aiops triage --incident INC-4821\n",400],
+    ["▸ Alert HighLatency on api-gateway (p99 2.8s, us-west).\n",450],
+    ["▸ Folding 4 duplicate pages → one incident. Severity P1 (checkout path).\n",550],
+    ["▸ Signature matched playbook: latency-triage.\n\n",800],
+    ["Gathering evidence (read-only)\n",350],
+    ["  • opening latency dashboard … captured p99 panel ✓\n",520],
+    ["  • pulling connection-pool metrics … 64/64 pinned ✓\n",520],
+    ["  • reading recent deploys … v8.4.1 @ 14:02 ✓\n",520],
+    ["  • following SOP link → pool-saturation runbook ✓\n\n",800],
+    ["Reasoning\n",350],
+    ["  • p99 steps 310ms → 2.8s exactly at 14:02 — aligns with the deploy.\n",650],
+    ["  • active connections pinned at ceiling 64/64 for 9 min.\n",650],
+    ["  • error budget burning 6× normal; blast radius = checkout.\n",650],
+    ["  • pool ceiling unchanged in v8.4.1 while traffic ~doubled.\n\n",900],
+    ["Verdict · high confidence\n",350],
+    ["Connection-pool exhaustion on payments-svc after v8.4.1.\n\n",900],
+    ["Action · latency-triage §3.2\n",350],
+    ["⚡ raise connection pool 64 → 128 (reversible).\n",450],
+    ["  ⏸ approval gate … approved by on-call.\n",650],
+    ["  applying change … audited ✓\n\n",800],
+    ["Verify\n",350],
+    ["  watching p99 for 3 min … 2.8s → 1.1s → 290ms ✓\n\n",900],
+    ["✅ Resolved in 3m 41s.\n",450],
+    ["   RCA posted to chat · runbook updated · pattern remembered.",300]
   ];
+  var phases=[[0,'triage'],[4,'gathering evidence'],[9,'reasoning'],[14,'verdict'],[16,'remediating'],[20,'verifying'],[22,'resolved']];
   function clearAll(){timers.forEach(clearTimeout);timers=[];}
+  function setStatus(txt,cls){status.className='chip '+cls;var c=(cls==='ok'?'ok':cls==='info'?'info':cls==='crit'?'crit':'warn');status.innerHTML='<span class="dot" style="background:var(--'+c+')"></span>'+txt;}
   function reset(){clearAll();running=false;feed.forEach(function(l){l.classList.remove('on');});
-    stream.innerHTML='<span style="color:var(--faint)">Press <b style="color:var(--ink)">Run incident</b> to watch the engine think through it in real time…</span>';
-    status.className='chip crit';status.innerHTML='<span class="dot" style="background:var(--crit)"></span>idle';elapsed.textContent='';runBtn.disabled=false;}
+    stream.innerHTML='<span style="color:var(--faint)">Press <b style="color:var(--ink)">Run incident</b> to watch the engine reason through a real incident, step by step…</span>';
+    setStatus('idle','crit');phaseEl.textContent='';elapsed.textContent='';runBtn.disabled=false;runBtn.textContent='▶ Run incident';}
+  function phaseFor(i){var p=phases[0];for(var k=0;k<phases.length;k++){if(i>=phases[k][0])p=phases[k];}return p;}
   function run(){
-    if(running)return; running=true; runBtn.disabled=true; clearAll();
-    stream.innerHTML=''; feed.forEach(function(l){l.classList.remove('on');});
-    status.className='chip warn';status.innerHTML='<span class="dot" style="background:var(--warn)"></span>diagnosing';
-    // timeline reveal
-    feed.forEach(function(l,i){timers.push(setTimeout(function(){l.classList.add('on');
-      if(i===feed.length-1){status.className='chip ok';status.innerHTML='<span class="dot" style="background:var(--ok)"></span>resolved';}
-    }, 500+i*720));});
-    // streaming analysis
-    var full=script.join(''), idx=0;
-    var cursor='<span class="cur"></span>';
-    (function type(){
-      if(idx>=full.length){stream.innerHTML=render(full);runBtn.disabled=false;running=false;return;}
-      idx+=Math.max(1,Math.round(Math.random()*3));
-      stream.innerHTML=render(full.slice(0,idx))+cursor;
-      stream.scrollTop=stream.scrollHeight;
-      timers.push(setTimeout(type, 18));
-    })();
+    if(running)return; running=true; runBtn.disabled=true; runBtn.textContent='● running…'; clearAll();
+    stream.innerHTML=''; feed.forEach(function(l){l.classList.remove('on');}); setStatus('triage','warn');
+    feed.forEach(function(l,i){timers.push(setTimeout(function(){l.classList.add('on');}, 700+i*1050));});
     var t0=Date.now();
-    (function tick(){ if(!running)return; var s=((Date.now()-t0)/1000).toFixed(1); elapsed.textContent='· '+s+'s'; timers.push(setTimeout(tick,100)); })();
+    (function tick(){ if(!running)return; elapsed.textContent='· '+((Date.now()-t0)/1000).toFixed(1)+'s'; timers.push(setTimeout(tick,100)); })();
+    if(reduce){var all=segs.map(function(s){return s[0]}).join('');stream.innerHTML=render(all);feed.forEach(function(l){l.classList.add('on');});setStatus('resolved','ok');running=false;runBtn.disabled=false;return;}
+    var si=0, acc='';
+    function nextSeg(){
+      if(si>=segs.length){stream.innerHTML=render(acc);setStatus('resolved','ok');phaseEl.textContent='· done';running=false;runBtn.disabled=false;runBtn.textContent='▶ Run again';return;}
+      var ph=phaseFor(si);setStatus(ph[1], ph[1]==='verdict'?'info':ph[1]==='resolved'?'ok':si>=14?'info':'warn');phaseEl.textContent='· phase '+(phases.indexOf(ph)+1)+'/'+phases.length;
+      var seg=segs[si][0], pause=segs[si][1], ci=0;
+      (function typeChar(){
+        if(ci>=seg.length){si++;timers.push(setTimeout(nextSeg,pause));return;}
+        acc+=seg.charAt(ci++);stream.innerHTML=render(acc)+'<span class="cur"></span>';stream.scrollTop=stream.scrollHeight;
+        timers.push(setTimeout(typeChar,32));
+      })();
+    }
+    nextSeg();
   }
   function render(t){
     return t
-      .replace(/Verdict \(high confidence\)/g,'<b style="color:var(--crit)">Verdict (high confidence)</b>')
-      .replace(/Reasoning/g,'<b style="color:var(--ink)">Reasoning</b>')
-      .replace(/Action/g,'<b style="color:var(--ink)">Action</b>')
+      .replace(/\$ aiops[^\n]*/g,'<span style="color:var(--accent)">$&</span>')
+      .replace(/Gathering evidence \(read-only\)|Reasoning|Action · latency-triage §3\.2|Verify/g,'<b style="color:var(--ink)">$&</b>')
+      .replace(/Verdict · high confidence/g,'<b style="color:var(--crit)">$&</b>')
+      .replace(/Connection-pool exhaustion[^\n]*/g,'<span style="color:var(--ink)">$&</span>')
       .replace(/✅ Resolved[^\n]*/g,'<b style="color:var(--ok)">$&</b>')
-      .replace(/⚡[^\n]*/g,'<span style="color:var(--accent)">$&</span>');
+      .replace(/⚡[^\n]*/g,'<span style="color:var(--accent)">$&</span>')
+      .replace(/✓/g,'<span style="color:var(--ok)">✓</span>');
   }
   runBtn.addEventListener('click',run);
   resetBtn.addEventListener('click',reset);
+
+  // ===== floating AI chat =====
+  var cw=document.getElementById('chatw');
+  var fab=document.getElementById('chatFab'), closeb=document.getElementById('chatClose');
+  var msgs=document.getElementById('chatMsgs'), cform=document.getElementById('chatForm'), cinput=document.getElementById('chatInput');
+  var ping=cw.querySelector('.ping');
+  fab.addEventListener('click',function(){if(cw.classList.contains('open')){cw.classList.remove('open');}else{cw.classList.add('open');if(ping)ping.style.display='none';setTimeout(function(){cinput.focus();},200);}});
+  closeb.addEventListener('click',function(){cw.classList.remove('open');});
+  var kb=[
+    [/root.?cause|diagnos|rca|verdict/i,"For each incident the engine reads the matching runbooks, opens the dashboards an engineer would, captures the evidence, and writes a <b>verdict with high confidence</b> — citing the exact SOP step it followed. Hit <b>Run incident</b> to watch it live."],
+    [/ci.?cd|pipeline|jenkins|argo|deploy|rollout|release/i,"Delivery goes commit → build → test+scan → dev → staging → <b>prod (approval gate)</b>, then a <b>staged rollout</b> (canary → waves → full) that auto-halts on error-budget burn, with one-button rollback."],
+    [/drift|out.?of.?band|desired|actual/i,"Config-drift control continuously compares <b>desired state (Git/IaC)</b> against what's actually running. When someone hot-fixes a cluster at 3am, it surfaces the <b>exact field-level diff</b> — one click to reconcile, or to pull the fix back into code."],
+    [/devops.*sre|sre.*devops|difference|two (pillar|side|disciplin)/i,"Two halves of one control plane: <b>DevOps</b> builds &amp; ships (CI/CD, GitOps, IaC, Kubernetes); <b>SRE / AIOps</b> runs &amp; defends (alert console, AI root-cause, playbooks, on-call). One platform, a clear line between them."],
+    [/gitops|promot|environment|staging|env/i,"GitOps keeps Git as the source of truth and reconciles the cluster to match. Promotion dev→staging→prod is a <b>reviewed PR</b> with the exact diff and an approval gate; who can promote where is scoped per team and audited."],
+    [/terraform|pulumi|iac|infra|module|state/i,"Infrastructure is composable <b>Terraform / Pulumi modules</b> — one abstraction reused across dev/staging/prod, differing only by variables. Every change is a reviewed <code>plan</code> before apply; state is remote, locked and versioned."],
+    [/kubernet|k8s|cluster|node|upgrade|crd/i,"Kubernetes is <b>self-managed</b> (not just a managed service): node pools drained and rotated with PDBs respected, versions upgraded in canaried waves, and the platform's behavior modeled as <b>custom resources</b> the operator reconciles."],
+    [/playbook|runbook|sop|remediat/i,"A playbook declares what it triggers on and the exact steps — read-only evidence gathering by default, write actions only behind <b>three gates</b> (platform-authored, idempotent, audited). It re-checks the real state before declaring success."],
+    [/noise|dedup|repeat|suppress|fatigue/i,"Alerts are deduplicated by fingerprint (317 pages → one counted row), and <b>repeat reminders of the same unresolved alert are diagnosed once</b>, not every 30 min — cutting pager noise ~91%."],
+    [/mttr|metric|impact|number|scale|fast/i,"Illustrative impact: <b>−74% MTTR</b>, <b>63% of incidents auto-closed</b>, <b>−91% alert noise</b> — built for 1M+ servers across 50+ regions, rollouts reaching 100k+ hosts/day."],
+    [/on.?call|duty|page|broadcast/i,"On-call is timezone-aware: the RCA summary routes to whoever's on duty, evidence attached. The engine handles diagnosis, so humans are pulled in only when a real decision is needed."],
+    [/hi|hello|hey|who|what.*(is|are) (this|you)/i,"I'm the <b>AIOpsMaster</b> copilot 🛰️ — I can explain delivery (CI/CD, GitOps, IaC) or incident ops (AI root-cause, playbooks, drift). What would you like to see?"]
+  ];
+  function reply(q){for(var i=0;i<kb.length;i++){if(kb[i][0].test(q))return kb[i][1];}
+    return "This is a prototype, so I answer from a fixed script — try <b>AI root-cause</b>, <b>CI/CD</b>, <b>config drift</b>, <b>GitOps</b>, <b>IaC</b>, <b>Kubernetes</b>, or <b>DevOps vs SRE</b>. Or hit <b>Run incident</b> to watch a full resolution.";}
+  function addMsg(txt,who){var d=document.createElement('div');d.className='m '+who;d.innerHTML=txt;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  function ask(q){addMsg(q.replace(/&/g,'&amp;').replace(/</g,'&lt;'),'me');
+    var t=document.createElement('div');t.className='typing';t.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(t);msgs.scrollTop=msgs.scrollHeight;
+    setTimeout(function(){t.remove();addMsg(reply(q),'ai');},650+Math.random()*550);}
+  cform.addEventListener('submit',function(e){e.preventDefault();var v=cinput.value.trim();if(!v)return;cinput.value='';ask(v);});
+  document.getElementById('chatSugg').addEventListener('click',function(e){if(e.target.tagName==='BUTTON'){cinput.value='';ask(e.target.textContent);}});
 })();
 </script>
