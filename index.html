@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
 <title>AIOpsMaster</title>
 <meta name="description" content="An autonomous incident operations platform — alerts triaged, root-caused, and resolved by an AI SRE that learns from every incident.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,7 +251,8 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
     <a class="brand" href="#top"><span class="mk"></span>AIOpsMaster</a>
     <nav class="links">
       <a href="#pipeline">How it works</a>
-      <a href="#capabilities">Capabilities</a>
+      <a href="#capabilities">Incident ops</a>
+      <a href="#delivery">Delivery &amp; IaC</a>
       <a href="#demo">Live demo</a>
       <a href="#flywheel">Learning</a>
       <a href="#architecture">Architecture</a>
@@ -502,6 +502,197 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
   </div>
 </section>
 
+<!-- ===================== SCALE BAND ===================== -->
+<section class="band">
+  <div class="wrap">
+    <div class="st"><div class="v">1M<span class="u">+</span></div><div class="l">Servers under management across 50+ regions</div></div>
+    <div class="st"><div class="v">100k<span class="u">/day</span></div><div class="l">Hosts a single rollout can safely reach</div></div>
+    <div class="st"><div class="v">4,000<span class="u">+</span></div><div class="l">Nodes on one self-managed Kubernetes platform</div></div>
+    <div class="st"><div class="v">0<span class="u">-touch</span></div><div class="l">GitOps promotion from merge to production</div></div>
+  </div>
+</section>
+
+<!-- ===================== DELIVERY & IAC ===================== -->
+<section class="sec" id="delivery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Delivery &amp; platform engineering</span>
+      <h2>Ship it the same disciplined way you resolve it.</h2>
+      <p>The control plane that diagnoses incidents also builds, promotes, and guards what you deploy — CI/CD, GitOps, Infrastructure-as-Code, and drift control, in one place.</p>
+    </div>
+
+    <!-- CI/CD pipeline visual -->
+    <div class="mock reveal" style="margin-top:34px">
+      <div class="mh">🚀 Delivery pipeline · <span style="color:var(--accent-2)">payments-svc</span> <span class="tag">commit a1f9c2 → prod</span></div>
+      <div style="display:flex;gap:0;padding:16px 14px;overflow-x:auto">
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:15px;border:1px solid var(--hair)">✓</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink);margin-top:8px">Commit</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">merge → main</div>
+          <div style="position:absolute;top:17px;right:0;width:calc(50% + 0px);height:2px;background:var(--ok)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:15px;border:1px solid var(--hair)">✓</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink);margin-top:8px">Build</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">image · 42s</div>
+          <div style="position:absolute;top:17px;left:0;width:50%;height:2px;background:var(--ok)"></div><div style="position:absolute;top:17px;right:0;width:50%;height:2px;background:var(--ok)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:15px;border:1px solid var(--hair)">✓</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink);margin-top:8px">Test + scan</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">1.2k pass · 0 CVE</div>
+          <div style="position:absolute;top:17px;left:0;width:50%;height:2px;background:var(--ok)"></div><div style="position:absolute;top:17px;right:0;width:50%;height:2px;background:var(--ok)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:15px;border:1px solid var(--hair)">✓</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink);margin-top:8px">dev</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">auto-sync</div>
+          <div style="position:absolute;top:17px;left:0;width:50%;height:2px;background:var(--ok)"></div><div style="position:absolute;top:17px;right:0;width:50%;height:2px;background:var(--ok)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--ok-bg);color:var(--ok);display:grid;place-items:center;font-size:15px;border:1px solid var(--hair)">✓</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink);margin-top:8px">staging</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">promoted</div>
+          <div style="position:absolute;top:17px;left:0;width:50%;height:2px;background:var(--ok)"></div><div style="position:absolute;top:17px;right:0;width:50%;height:2px;background:var(--accent)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;position:relative">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--accent-bg);color:var(--accent-2);display:grid;place-items:center;font-size:14px;border:1px solid var(--accent);box-shadow:0 0 0 3px var(--accent-ring)">⏸</div>
+          <div style="font-size:12px;font-weight:700;color:var(--ink);margin-top:8px">prod gate</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--warn);margin-top:2px">awaiting approval</div>
+          <div style="position:absolute;top:17px;left:0;width:50%;height:2px;background:var(--accent)"></div></div>
+        <div style="flex:1;min-width:92px;text-align:center;opacity:.5">
+          <div style="width:34px;height:34px;margin:0 auto;border-radius:9px;background:var(--sunken);color:var(--faint);display:grid;place-items:center;font-size:15px;border:1px dashed var(--hair)">◷</div>
+          <div style="font-size:12px;font-weight:600;color:var(--muted);margin-top:8px">prod</div>
+          <div style="font-family:'IBM Plex Mono';font-size:10px;color:var(--faint);margin-top:2px">canary → full</div></div>
+      </div>
+    </div>
+
+    <!-- cap: CI/CD -->
+    <div class="cap reveal">
+      <div class="txt">
+        <span class="chip ac">07 · CI/CD &amp; delivery</span>
+        <h3>Pipelines designed for blast-radius, not just green checks.</h3>
+        <p>From commit to canary to full rollout, every pipeline is built around the questions that matter at scale: who approves, how fast it spreads, and how fast it comes back.</p>
+        <ul>
+          <li><span class="k">→</span><span><b>Staged rollout.</b> Canary → waves → full fleet, with automatic halt on error-budget burn.</span></li>
+          <li><span class="k">→</span><span><b>One-button rollback &amp; recovery.</b> A bad deploy reverses on the same path it rolled out.</span></li>
+          <li><span class="k">→</span><span><b>Incident-aware.</b> A pipeline failure that touches users opens an incident with the diff attached — root cause, not just a red X.</span></li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="mh">📜 Rollout · <span style="color:var(--accent-2)">v8.4.1 → fleet</span> <span class="tag">wave 3 of 5</span></div>
+        <div class="pb" style="padding:14px">
+          <div class="steps" style="gap:7px">
+            <div class="s"><span class="n" style="background:var(--ok-bg);color:var(--ok)">✓</span><div class="d"><b>Canary 1%</b> <span>— 320 hosts · p99 steady · error budget ok</span></div></div>
+            <div class="s"><span class="n" style="background:var(--ok-bg);color:var(--ok)">✓</span><div class="d"><b>Wave 1 · 10%</b> <span>— 10k hosts · healthy</span></div></div>
+            <div class="s"><span class="n" style="background:var(--ok-bg);color:var(--ok)">✓</span><div class="d"><b>Wave 2 · 30%</b> <span>— 32k hosts · healthy</span></div></div>
+            <div class="s" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-ring)"><span class="n">▶</span><div class="d"><b>Wave 3 · 60%</b> <span>— rolling to 64k hosts…</span></div></div>
+            <div class="s" style="opacity:.55"><span class="n" style="background:var(--sunken);color:var(--faint)">◷</span><div class="d"><b>Wave 4–5 · 100%</b> <span>— queued · auto-halt armed</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cap: GitOps -->
+    <div class="cap rev reveal">
+      <div class="txt">
+        <span class="chip ac">08 · GitOps &amp; promotion</span>
+        <h3>Git is the source of truth — across every team and every environment.</h3>
+        <p>Desired state lives in Git; the platform reconciles the cluster to match. Environment promotion is a reviewed pull request, not a hand-run script, with access scoped per team.</p>
+        <ul>
+          <li><span class="k">→</span><span><b>Declarative sync.</b> Cluster continuously reconciled to the Git desired state; manual edits are reverted or flagged.</span></li>
+          <li><span class="k">→</span><span><b>dev → staging → prod.</b> Each promotion is a PR with the exact diff and an approval gate.</span></li>
+          <li><span class="k">→</span><span><b>Per-team access.</b> Who can promote where is codified and audited — no shared admin.</span></li>
+        </ul>
+      </div>
+      <div class="mock gov">
+        <div class="mh">🔀 GitOps · environments <span class="tag">app: payments-svc</span></div>
+        <table>
+          <thead><tr><th>Environment</th><th>Desired (Git)</th><th>Sync</th><th>Promote</th></tr></thead>
+          <tbody>
+            <tr><td>dev</td><td><code>v8.4.1</code></td><td><span class="chip ok">in sync</span></td><td><span class="pick">auto</span></td></tr>
+            <tr><td>staging</td><td><code>v8.4.1</code></td><td><span class="chip ok">in sync</span></td><td><span class="pick ac">PR #418 ✓</span></td></tr>
+            <tr><td>prod-us</td><td><code>v8.4.0</code></td><td><span class="chip warn">1 behind</span></td><td><span class="pick ac">PR #419 · review</span></td></tr>
+            <tr><td>prod-eu</td><td><code>v8.4.0</code></td><td><span class="chip crit">drift</span></td><td><span class="pick" style="color:var(--crit)">out-of-band edit</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- cap: IaC -->
+    <div class="cap reveal">
+      <div class="txt">
+        <span class="chip ac">09 · Infrastructure as Code</span>
+        <h3>Reusable modules, one plan, no snowflakes.</h3>
+        <p>Infrastructure is defined as composable Terraform / Pulumi modules — one abstraction reused across dev, staging and prod, so environments differ by variables, not by copy-paste.</p>
+        <ul>
+          <li><span class="k">→</span><span><b>Module-first.</b> A network, a cluster, a queue — each a versioned module with sane defaults and guardrails.</span></li>
+          <li><span class="k">→</span><span><b>Plan before apply.</b> Every change is a reviewed plan; no resource is touched without a diff.</span></li>
+          <li><span class="k">→</span><span><b>Safe state.</b> Remote, locked, versioned state — with recovery runbooks for the day it corrupts.</span></li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="mh">🧱 <span class="mono" style="font-weight:600">terraform plan</span> · <span style="color:var(--accent-2)">module.edge_cluster</span> <span class="tag">env = prod-eu</span></div>
+        <div style="padding:14px;font-family:'IBM Plex Mono';font-size:12px;line-height:1.85">
+          <div><span style="color:var(--ok)">+</span> <b style="color:var(--ink)">eks_node_group</b>.workers&nbsp; <span style="color:var(--muted)">create · 24 → 32 nodes</span></div>
+          <div><span style="color:var(--warn)">~</span> <b style="color:var(--ink)">elasticache</b>.sessions&nbsp; <span style="color:var(--muted)">update · cache.r6g.large → xlarge</span></div>
+          <div><span style="color:var(--ok)">+</span> <b style="color:var(--ink)">sqs_queue</b>.ingest_dlq&nbsp; <span style="color:var(--muted)">create</span></div>
+          <div style="color:var(--faint)">&nbsp;&nbsp;s3_bucket.artifacts&nbsp; no change</div>
+          <div style="margin-top:9px;color:var(--body)">Plan: <b style="color:var(--ok)">2 to add</b>, <b style="color:var(--warn)">1 to change</b>, <b style="color:var(--muted)">0 to destroy</b>.</div>
+          <div style="margin-top:9px"><span class="chip ac" style="font-family:inherit">module reused across 4 environments</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cap: drift -->
+    <div class="cap rev reveal">
+      <div class="txt">
+        <span class="chip ac">10 · Config-drift control</span>
+        <h3>Catch the out-of-band change before it becomes the outage.</h3>
+        <p>The platform continuously compares what's actually running against the declared desired state. When someone hot-fixes a cluster at 3am, the drift surfaces — with the exact diff — instead of silently waiting to break the next deploy.</p>
+        <ul>
+          <li><span class="k">→</span><span><b>Desired vs. actual, always on.</b> Every node and resource reconciled against Git / IaC state.</span></li>
+          <li><span class="k">→</span><span><b>Exact diff, not a vague alarm.</b> It names the field, the value, and who changed it out of band.</span></li>
+          <li><span class="k">→</span><span><b>Reconcile or ratify.</b> One click to revert to desired — or to pull the fix back into code.</span></li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="mh">🔍 Drift detected · <span style="color:var(--accent-2)">prod-eu / edge_cluster</span> <span class="tag">out-of-band</span></div>
+        <div style="padding:14px;font-family:'IBM Plex Mono';font-size:12px;line-height:1.9">
+          <div style="color:var(--faint)">resource: deployment/edge-proxy</div>
+          <div><span style="color:var(--crit)">− desired</span>&nbsp; replicas: <b style="color:var(--ink)">12</b>&nbsp; <span style="color:var(--muted)">(from Git)</span></div>
+          <div><span style="color:var(--warn)">+ actual</span>&nbsp;&nbsp; replicas: <b style="color:var(--ink)">4</b>&nbsp;&nbsp; <span style="color:var(--muted)">(scaled by hand · 02:41)</span></div>
+          <div style="margin-top:8px;color:var(--faint)">resource: configmap/edge-tuning</div>
+          <div><span style="color:var(--warn)">+ actual</span>&nbsp;&nbsp; timeout_ms: <b style="color:var(--ink)">500</b>&nbsp; <span style="color:var(--muted)">not in desired state</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px"><span class="chip crit" style="font-family:inherit">2 resources drifted</span><span class="chip ac" style="font-family:inherit">reconcile ↺</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cap: kubernetes -->
+    <div class="cap reveal">
+      <div class="txt">
+        <span class="chip ac">11 · Self-managed Kubernetes</span>
+        <h3>The cluster is ours — nodes, upgrades, and custom resources included.</h3>
+        <p>Not just consuming a managed service: owning the lifecycle. Node pools drained and rotated without downtime, versions upgraded in waves, and the platform's own behavior modeled as custom resources.</p>
+        <ul>
+          <li><span class="k">→</span><span><b>Node lifecycle.</b> Cordon, drain, rotate and rejoin — rolling, with pod-disruption budgets respected.</span></li>
+          <li><span class="k">→</span><span><b>Version upgrades in waves.</b> Control plane then node pools, canaried, with a tested rollback path.</span></li>
+          <li><span class="k">→</span><span><b>Custom resources.</b> Rollouts, playbooks and guardrails declared as CRDs the operator reconciles.</span></li>
+        </ul>
+      </div>
+      <div class="mock">
+        <div class="mh">☸️ Cluster · <span style="color:var(--accent-2)">edge-platform</span> <span class="tag">self-managed · 4,120 nodes</span></div>
+        <table>
+          <thead><tr><th>Node pool</th><th>Version</th><th>Nodes</th><th>State</th></tr></thead>
+          <tbody>
+            <tr><td>system</td><td><code>v1.29.4</code></td><td class="tnum">24</td><td><span class="chip ok">healthy</span></td></tr>
+            <tr><td>general-a</td><td><code>v1.29.4</code></td><td class="tnum">1,860</td><td><span class="chip ok">healthy</span></td></tr>
+            <tr><td>general-b</td><td><code>v1.29.2</code></td><td class="tnum">2,210</td><td><span class="chip ac">upgrading · wave 2</span></td></tr>
+            <tr><td>gpu</td><td><code>v1.29.4</code></td><td class="tnum">26</td><td><span class="chip warn">1 draining</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===================== LIVE DEMO ===================== -->
 <section class="sec" id="demo" style="background:var(--sunken);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)">
   <div class="wrap">
@@ -726,5 +917,3 @@ footer .note{font-family:"IBM Plex Mono";font-size:11px;color:var(--faint);backg
   resetBtn.addEventListener('click',reset);
 })();
 </script>
-
-</body></html>
